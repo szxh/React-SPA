@@ -12,12 +12,28 @@ class Home extends React.Component{
         };
         this.renderList = this.renderList.bind(this);
         this.delete = this.delete.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
+        this.handleCheck = this.handleCheck.bind(this);
     }
 
     delete(index) {
         let questions = this.state.questions;
         questions.splice(index, 1);
         this.setState({ questions: questions });
+    }
+
+    handleEdit(publish, event) {
+        if (publish) {
+            event.preventDefault();
+            alert('问卷已发布，不能编辑');
+        }
+    }
+
+    handleCheck(publish, event) {
+        if (! publish) {
+            event.preventDefault();
+            alert('问卷未发布，不能查看数据');
+        }
     }
 
     renderList() {
@@ -28,10 +44,10 @@ class Home extends React.Component{
                             <span className={styles.timeInstance}>{q.time}</span>
                             <span className={styles.stateInstance}>{(q.publish) ? '已发布' : '未发布'}</span>
                             <span className={styles.handleInstance}>
-                                <Link to={{ pathname: '/edit', query: {index: index} }}>
+                                <Link to={{ pathname: '/edit', query: {index: index} }} onClick={this.handleEdit.bind(this, q.publish)}>
                                     <span className={styles.btnSmall}>编辑</span>
                                 </Link>
-                                <Link to={{ pathname: '/check', query: {index: index} }}>
+                                <Link to={{ pathname: '/check', query: {index: index} }} onClick={this.handleCheck.bind(this, q.publish)}>
                                     <span className={styles.btnSmall}>查看</span>
                                 </Link>
                                 <Link to={{ pathname: '/fill', query: {index: index} }}>

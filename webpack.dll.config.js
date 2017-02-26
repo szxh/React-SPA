@@ -5,8 +5,6 @@ module.exports = {
     entry: {
         vendor: ['react', 
                 'react-dom',
-                'react-redux',
-                'redux',
                 'react-router',
                 'react-transform-hmr',
                 'classnames',

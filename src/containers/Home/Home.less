@@ -1,0 +1,75 @@
+@import '../../styles/normalize.less';
+
+.common {
+    display: inline-block;
+    font-size: 24px;
+    height: 60px;
+}
+
+.commonTwo {
+    display: inline-block;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+}
+.wrapper {
+    padding: 0;
+}
+.list {
+    list-style: none;
+    text-align: center;
+    line-height: 60px;
+}
+.list>span:hover {
+    background-color: @light-orange;
+}
+
+.title {
+    composes: common;
+    width: 30%;
+}
+.time {
+    composes: common;
+    width: 20%;
+}
+.state {
+    composes: common;
+    width: 10%;
+}
+.handle {
+    composes: common;
+    width: 40%;    
+}
+.handle>span {
+    margin-right: 15%;
+}
+.btn {
+    composes: button from '../../styles/button.less';
+}
+
+.titleInstance {
+    composes: commonTwo;
+    width: 30%;
+}
+
+.timeInstance {
+    composes: commonTwo;
+    width: 20%;
+}
+
+.stateInstance {
+    composes: commonTwo;
+    width: 10%;
+}
+
+.handleInstance {
+    composes: commonTwo;
+    width: 40%;
+}
+
+.btnSmall {
+    composes: button from '../../styles/button.less';
+    width: 50px;
+    margin-left: 10px;
+}
+
